@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseCardComponent } from './course/course-card/course-card.component';
 import { CourseDetailComponent } from './course/course-detail/course-detail.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { WishlistComponent } from './wishlist/wishlist/wishlist.component';
-import { ProfileComponent } from './profile/profile/profile.component';
+import { DashboardComponent } from './dashboard//dashboard.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileComponent } from './profile/profile/profile.component';
     CourseDetailComponent,
     DashboardComponent,
     WishlistComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
