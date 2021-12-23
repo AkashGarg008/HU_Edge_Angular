@@ -1,0 +1,10 @@
+{
+    "courses" : [
+        {
+            "title": "Full stack understanding",
+            "author": "John",
+            "price": 399,
+            "tags": ["React"]
+        }
+    ]
+}
