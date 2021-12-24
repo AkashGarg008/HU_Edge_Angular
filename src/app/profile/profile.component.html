@@ -1,1 +1,53 @@
-<p>profile works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+    <div class="form-row">
+        <div class="form-group col-md-4" style="margin-top:20px">
+            <label>Display Name</label>
+            <input type="text" formControlName="displayName" id="defaultRegisterFormDisplayName" class="form-control" placeholder="Display name">
+        </div>
+        <div class="form-group col-md-4" style="margin-top:20px">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+        </div>
+        <div class="form-group col-md-4" style="margin-top:20px">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+        </div>
+    </div>
+  
+    <div class="form-group" style="margin-top:40px">
+        <label for="exampleFormControlTextarea1">About yourself</label>
+        <textarea class="form-control"  formControlName="about" id="exampleFormControlTextarea1" rows="4"></textarea>
+      </div>
+
+      <fieldset class="form-group">
+        <div>
+          <label class="col-form-label">Radios</label>
+          <div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" formControlName="role" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Designer
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" formControlName="role" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Developer
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" formControlName="role" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+                Project Manager
+              </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" formControlName="role" value="option3">
+                <label class="form-check-label" for="gridRadios3">
+                  Sales
+                </label>
+              </div>
+          </div>
+        </div>
+      </fieldset>
+  </form>
