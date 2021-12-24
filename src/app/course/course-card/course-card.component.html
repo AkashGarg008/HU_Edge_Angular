@@ -1,7 +1,8 @@
 <div class="card-body">
+    <!-- (click)="navigateToCourseDetail($event)" -->
     <a
   style="cursor: pointer"
-  class="list-group-item clearfix">
+  class="list-group-item clearfix" >
   <div class="row">
       <div class="col-sm-6">
           <div class="col-sm">
@@ -13,8 +14,8 @@
       </div>
       <div class="col-sm-6">
         <span class="pull-right">
-            <input class="star" type="checkbox" title="add to wishlist" (change)="addRemoveFromWishlist($event)">
-            <button style="margin-left: 30px" type="button" class="btn" [disabled]="disableAddToCart" (click)="addToCart()">ADD TO CART</button>
+            <input class="star" type="checkbox" title="add to wishlist" (change)="addRemoveFromWishlist($event)" checked="false">
+            <button style="margin-left: 30px" type="button" class="btn" [disabled]="disableAddToCart" (click)="addToCart($event)">ADD TO CART</button>
         </span>
       </div>
   </div>

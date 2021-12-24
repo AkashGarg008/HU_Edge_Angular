@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from 'src/app/common/common.service';
 import { Course } from 'src/app/model/course';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-course-card',
@@ -12,27 +13,26 @@ export class CourseCardComponent implements OnInit {
   @Input() course: Course;
   @Input() index: number;
   public disableAddToCart: boolean;
-  constructor(private commonService: CommonService) { }
+  // private r÷outer: ActivatedRoute;
+  constructor(private commonService: CommonService, private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  public addToCart() {
-    // if (this.commonService.getCartItems().contains(course)) {
-    //   this.disableAddToCart = true;
-    // }
+  public addToCart(e: Event) {
+    e.stopPropagation();
     let cartItems = this.commonService.getCartItems();
-    if (cartItems.indexOf(this.course) === -1) {
+    if (!cartItems.length || cartItems.indexOf(this.course) === -1) {
       this.commonService.getCartItems().push(this.course);
+      this.showAlert("Course " + this.course.title + " added to cart");
     } else {
       this.showAlert("Course already added.");
       this.disableAddToCart = true;
     }
-    this.showAlert("Course " + this.course.title + " added to cart");
   }
 
   public addRemoveFromWishlist(e: any) {
-    this.commonService.getWishListItems().push(this.course);
+    e.stopPropagation();
     let wishListItems = this.commonService.getWishListItems();
     if(e.target.checked){        
       if (this.checkExistsInWishList(this.course, wishListItems)) {
@@ -42,9 +42,10 @@ export class CourseCardComponent implements OnInit {
       } else {
         this.showAlert("Course already added.");
       }
-      this.showAlert("Course " + this.course.title + " removed from wishlist");
     } else {
-      if (this.checkExistsInWishList(this.course, wishListItems)) {
+      if (!this.checkExistsInWishList(this.course, wishListItems)) {
+        console.log(this.commonService.getWishListItems());
+        console.log(this.course);
         this.commonService.getWishListItems().push(this.course);
         this.showAlert("Course " + this.course.title + " added to wishlist");
       } else {
@@ -58,9 +59,16 @@ export class CourseCardComponent implements OnInit {
   }
 
   public checkExistsInWishList(course: Course, items: Course[]) {
-    if (items.indexOf(this.course) != -1)
+    if (!items.length || items.indexOf(this.course) == -1) {
+      return false;
+    }
     return true;
-    return false;
   }
+
+  public navigateToCourseDetail(event: any){
+    event.stopPropagation();
+    this.router.navigate(['courseDetail']);
+    return false;
+}
 
 }

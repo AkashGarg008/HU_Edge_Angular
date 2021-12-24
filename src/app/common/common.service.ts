@@ -15,7 +15,7 @@ export class CommonService {
   private wishListItems: Course[] = [];
   private cartItems: Course[] = [];
   public getCourseData(): Observable<any> {
-    return this.http.get<any>('./config/courseData.json');
+    return this.http.get<any>('assets/coursedata/courseData.json');
   }
 
   public getWishListItems() {

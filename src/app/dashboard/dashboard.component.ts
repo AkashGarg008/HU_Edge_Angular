@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonService } from '../common/common.service';
 import { Course } from '../model/course';
 
 @Component({
@@ -9,41 +10,15 @@ import { Course } from '../model/course';
 export class DashboardComponent implements OnInit {
 
   public courses: Course[];
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
-    // this.courses = this.commonService.getCourseData().subscribe(
-    //   (data: {courses: Course[]}) => {
-    //     this.courses = data.courses;
-    //     console.log(this.courses);
-    //   }
-    // );
-    this.courses = [
-      {
-        "title": "Full stack understanding",
-        "author": "John",
-        "price": 399,
-        "tags": ["React"]
-     },
-     {
-      "title": "Full angular understanding",
-      "author": "John",
-      "price": 499,
-      "tags": ["Angular"]
-    },
-    {
-      "title": "Full react fragment understanding",
-      "author": "Akash",
-      "price": 499,
-      "tags": ["React"]
-    },
-    {
-      "title": "Full angular material understanding",
-      "author": "Akash",
-      "price": 499,
-      "tags": ["Angular"]
-    }
-    ];
+    this.commonService.getCourseData().subscribe(
+      (data: {courses: Course[]}) => {
+        this.courses = data.courses;
+        console.log(this.courses);
+      }
+    );
   }
 
 }
