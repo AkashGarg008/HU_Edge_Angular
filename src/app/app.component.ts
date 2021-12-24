@@ -16,11 +16,21 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.commonService.getCourseData().subscribe(
-      (data: {courses: Course[]}) => {
-        this.courseData = data.courses;
-        console.log(this.courseData);
-      }
-    );
+    // this.commonService.getCourseData().subscribe(
+    //   (data: {courses: Course[]}) => {
+    //     this.courseData = data.courses;
+    //     console.log(this.courseData);
+    //   }
+    // );
+
+    this.courseData = [
+      {
+        "title": "Full stack understanding",
+        "author": "John",
+        "price": 399,
+        "tags": ["React"]
+     }
+    ];
+    console.log(this.courseData);
   }
 }

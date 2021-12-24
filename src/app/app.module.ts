@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard//dashboard.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CartComponent } from './cart/cart.component';
     DashboardComponent,
     WishlistComponent,
     ProfileComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

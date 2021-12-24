@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommonService } from 'src/app/common/common.service';
+import { Course } from 'src/app/model/course';
 
 @Component({
   selector: 'app-course-list',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
-  constructor() { }
+  @Input() courses: Course[];
+  constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

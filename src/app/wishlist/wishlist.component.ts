@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../common/common.service';
+import { Course } from '../model/course';
 
 @Component({
   selector: 'app-wishlist',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
+  public courses: Course[];
+  constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
+    this.courses = this.commonService.getWishListItems();
   }
 
 }

@@ -1,1 +1,22 @@
-<p>course-card works!</p>
+<div class="card-body">
+    <a
+  style="cursor: pointer"
+  class="list-group-item clearfix">
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="col-sm">
+            <h4 class="list-group-item-heading">{{course.title}}</h4>
+            <p class="list-group-item-text">{{course.tags[0]}}</p>
+            <p class="list-group-item-text">{{course.author}}</p>
+            <p class="list-group-item-text">{{course.price}}</p>
+          </div>
+      </div>
+      <div class="col-sm-6">
+        <span class="pull-right">
+            <input class="star" type="checkbox" title="add to wishlist" (change)="addRemoveFromWishlist($event)">
+            <button style="margin-left: 30px" type="button" class="btn" [disabled]="disableAddToCart" (click)="addToCart()">ADD TO CART</button>
+        </span>
+      </div>
+  </div>
+</a>
+</div>

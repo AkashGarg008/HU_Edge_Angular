@@ -1,7 +1,11 @@
-export interface Course {
-    title: string,
-    author: string,
-    price: number,
-    tags: string[],
-    discount: number,
+export class Course {
+    public title: string;
+    public author: string;
+    public price: number;
+    public tags: string[];
+    public discount?: number;
+
+    constructor () {
+        
+    }
 }
